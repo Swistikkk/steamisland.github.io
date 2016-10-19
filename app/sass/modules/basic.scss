@@ -1,0 +1,208 @@
+@font-face {
+    font-family: 'ralewaysemibold';
+    src: url('../fonts/raleway-semibold-webfont.woff2') format('woff2'),
+         url('../fonts/raleway-semibold-webfont.woff') format('woff'),
+         url('../fonts/raleway-semibold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gilroylight';
+    src: url('../fonts/gilroy-light-webfont.woff2') format('woff2'),
+         url('../fonts/gilroy-light-webfont.woff') format('woff'),
+         url('../fonts/gilroy-light-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'museo_sans_cyrl100';
+    src: url('../fonts/museosanscyrl_100-webfont.woff2') format('woff2'),
+         url('../fonts/museosanscyrl_100-webfont.woff') format('woff'),
+         url('../fonts/museosanscyrl_100-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'museo_sans_cyrl500';
+    src: url('../fonts/museosanscyrl_500-webfont.woff2') format('woff2'),
+         url('../fonts/museosanscyrl_500-webfont.woff') format('woff'),
+         url('../fonts/museosanscyrl_500-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.global-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+}
+
+.main-header {
+  position: fixed;
+  z-index: 10;
+  height: 90px;
+  left: 0;
+  right: 0;
+  top: 28px;
+
+  &__logo {
+    display: inline-block;
+    margin-right: 45px;
+  }
+
+  &__menu {
+    line-height: 90px;
+    display: inline-block;
+    vertical-align: top;
+
+    .link {
+      color: #fff;
+      font-family: 'ralewaysemibold';
+      font-size: 12px;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding-bottom: 4px;
+      margin-right: 27px;
+
+      &:last-child {
+        margin-right: 27px;
+      }
+
+      &:hover {
+        border-bottom: 2px solid #fff;
+      }
+
+      &.active {
+        border-bottom: 2px solid #fff;
+      }
+    }
+  }
+}
+
+.first-main-slider {
+  background: url('../img/first-slider.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  .title {
+    text-align: center;
+    color: #fff;
+    font-family: 'gilroylight';
+    font-size: 40px;
+    position: absolute;
+    top: 49%;
+    left: 0;
+    right: 0;
+  }
+}
+
+.production {
+  background: #ccc;
+   &__info {
+     width: 490px;
+     .header {
+       background: #fff;
+       padding-left: 70px;
+       padding-top: 5px;
+       padding-bottom: 5px;
+       p {
+         color: #000;
+         font-size: 24px;
+         padding: 5px 0;
+         line-height: 25px;
+         font-family: 'museo_sans_cyrl100';
+       }
+     }
+
+     .main-block {
+       background: rgba(0,0,0, 0.75);
+       color: #fff;
+       padding-left: 70px;
+       padding-top: 22px;
+       padding-bottom: 22px;
+       padding-right: 55px;
+       line-height: 22px;
+
+       &__description {
+         font-family: 'museo_sans_cyrl500';
+       }
+     }
+   }
+}
+
+.contact-us {
+  background: #000;
+  position: relative;
+  height: 100%;
+
+  &__contacts {
+    width: 41%;
+    display: inline-block;
+    background: #000;
+    position: relative;
+    top: 49%;
+    left: 0;
+
+    .item {
+      color: #fff;
+      font-family: 'museo_sans_cyrl500';
+      font-size: 18px;
+      margin-bottom: 20px;
+
+      span {
+        font-family: 'museo_sans_cyrl100';
+        color: #bbb;
+      }
+    }
+  }
+
+  &__button {
+    margin-top: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: 'museo_sans_cyrl500';
+    font-size: 18px;
+    border: 2px solid #fff;
+    text-align: center;
+    padding: 21px;
+    background: transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      background: #fff;
+      color: #000;
+    }
+  }
+
+  &__map {
+    display: inline-block;
+    width: 59%;
+    position: absolute;
+    z-index: 9999;
+    height: 100%;
+    top: 0;
+    left: 41%;
+    #map {
+      height: 100%;
+
+      a[target="_blank"] {
+        display: none !important;
+      }
+
+      .gm-style-cc, .gm-style-mtc {
+        display: none !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>STEAM ISLAND</title>
+
+  <link rel="stylesheet" href="css/libs/jquery.fullPage.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="js/libs/jquery.fullPage.min.js"></script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="global-wrapper">
+      <div class="main-header__logo">
+        <img src="img/logo.png" alt="">
+      </div>
+
+      <nav class="main-header__menu" id="main-header__menu">
+        <a data-menuanchor="first-main-slider" href="#first-main-slider" class="link">Главная</a>
+        <a data-menuanchor="production" href="#production" class="link">Продукция</a>
+        <a data-menuanchor="contact-us" href="#contact-us" class="link">Связаться с нами</a>
+      </nav>
+    </div>
+  </header><!-- /main-header-->
+
+  <div id="fullpage">
+    <div class="section first-main-slider" id="first-main-slider">
+      <div class="global-wrapper">
+        <h1 class="title">Путешествие в твою месту начнется сегодня.</h1>
+      </div>
+    </div>
+    <div class="section production">
+      <div class="production__info">
+        <div class="header">
+          <p>Friday</p>
+          <p>08:37 PM</p>
+          <p>Miami Beach</p>
+        </div>
+        <div class="main-block">
+          <p class="main-block__description">
+            А вот тут будет текст про то,
+            какая эта жижа заебатская.
+            Однако беспокойная современность
+            сама приходит в нью-йоркский
+            пригород: среди ночи в дом
+            вламывается блондинка с пистолетом
+            (Майли Сайрус). Она из семьи,
+            которой Кей считает себя обязанной, и
+            ей нужно спрятаться от полиции: активист
+            левацкой радикальной группировки, она
+            взорвала призывной пункт, попала в тюрьму,
+            а потом сбежала оттуда. Теперь она
+            собирается вылететь на Кубу — а пока
+            вешает на стену плакат с Че Геварой,
+            съедает все, что есть в холодильнике, и
+            обвиняет недовольного Мансингера в
+            старческом слабоумии.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="section contact-us">
+      <div class="global-wrapper">
+        <div class="contact-us__contacts">
+          <p class="item">
+            Телефон: <span>8 (926) 146-36-88</span>
+          </p>
+          <p class="item">
+            E-mail: <span>hello@steamisland.net</span>
+          </p>
+          <p class="item">
+            Время работы: <span>10:00 - 19:00</span>
+          </p>
+
+          <button class="contact-us__button">
+            Запрос оптовых цен
+          </button>
+        </div>
+      </div>
+
+      <div class="contact-us__map">
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
+
+  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2yLIDhVcUtBRBGT3LXlZKkICAhyxP7dY&callback=initMap"></script>
+  <script>
+    var map;
+
+    function initMap() {
+
+      var latitude = 60.178617,
+          longitude = 24.937921,
+          map_zoom = 5
+
+      var main_color = '#232734',
+        saturation_value= 1,
+        brightness_value= -10;
+
+      var style= [
+    		{
+    			//Насыщенность обозначений на карте
+    			elementType: "labels",
+    			stylers: [
+    				{saturation: saturation_value}
+    			]
+    		},
+    	    {	//Скрываем обозначения станций метро, вокзалов, аэропортов и прочих транспортных узов на карте
+    			featureType: "poi",
+    			elementType: "labels",
+    			stylers: [
+    				{visibility: "off"}
+    			]
+    		},
+    		{
+    			//Скрываем обозначение дорог на карте
+    	        featureType: 'road.highway',
+    	        elementType: 'labels',
+    	        stylers: [
+    	            {visibility: "off"}
+    	        ]
+    	    },
+    		{
+    			//Скрываем обозначение локальных дорог
+    			featureType: "road.local",
+    			elementType: "labels.icon",
+    			stylers: [
+    				{visibility: "off"}
+    			]
+    		},
+    		{
+    			//Скрываем обозначение магистрали на карте
+    			featureType: "road.arterial",
+    			elementType: "labels.icon",
+    			stylers: [
+    				{visibility: "off"}
+    			]
+    		},
+    		{
+    			//Скрываем дорожные обозначения на карте
+    			featureType: "road",
+    			elementType: "geometry.stroke",
+    			stylers: [
+    				{visibility: "off"}
+    			]
+    		},
+    		//Стили для разных элементов на карте
+    		{
+    			featureType: "transit",
+    			elementType: "geometry.fill",
+    			stylers: [
+    				{ hue: main_color },
+    				{ visibility: "on" },
+    				{ lightness: brightness_value },
+    				{ saturation: saturation_value }
+    			]
+    		},
+    		{
+    			featureType: "poi",
+    			elementType: "geometry.fill",
+    			stylers: [
+    				{ hue: main_color },
+    				{ visibility: "on" },
+    				{ lightness: brightness_value },
+    				{ saturation: saturation_value }
+    			]
+    		},
+    		{
+    			featureType: "poi.government",
+    			elementType: "geometry.fill",
+    			stylers: [
+    				{ hue: main_color },
+    				{ visibility: "on" },
+    				{ lightness: brightness_value },
+    				{ saturation: saturation_value }
+    			]
+    		},
+    		{
+    			featureType: "poi.sport_complex",
+    			elementType: "geometry.fill",
+    			stylers: [
+    				{ hue: main_color },
+    				{ visibility: "on" },
+    				{ lightness: brightness_value },
+    				{ saturation: saturation_value }
+    			]
+    		},
+    		{
+    			featureType: "poi.attraction",
+    			elementType: "geometry.fill",
+    			stylers: [
+    				{ hue: main_color },
+    				{ visibility: "on" },
+    				{ lightness: brightness_value },
+    				{ saturation: saturation_value }
+    			]
+    		},
+    		{
+    			featureType: "poi.business",
+    			elementType: "geometry.fill",
+    			stylers: [
+    				{ hue: main_color },
+    				{ visibility: "on" },
+    				{ lightness: brightness_value },
+    				{ saturation: saturation_value }
+    			]
+    		},
+    		{
+    			featureType: "transit",
+    			elementType: "geometry.fill",
+    			stylers: [
+    				{ hue: main_color },
+    				{ visibility: "on" },
+    				{ lightness: brightness_value },
+    				{ saturation: saturation_value }
+    			]
+    		},
+    		{
+    			featureType: "transit.station",
+    			elementType: "geometry.fill",
+    			stylers: [
+    				{ hue: main_color },
+    				{ visibility: "on" },
+    				{ lightness: brightness_value },
+    				{ saturation: saturation_value }
+    			]
+    		},
+    		{
+    			featureType: "landscape",
+    			stylers: [
+    				{ hue: main_color },
+    				{ visibility: "on" },
+    				{ lightness: brightness_value },
+    				{ saturation: saturation_value }
+    			]
+
+    		},
+    		{
+    			featureType: "road",
+    			elementType: "geometry.fill",
+    			stylers: [
+    				{ hue: main_color },
+    				{ visibility: "on" },
+    				{ lightness: brightness_value },
+    				{ saturation: saturation_value }
+    			]
+    		},
+    		{
+    			featureType: "road.highway",
+    			elementType: "geometry.fill",
+    			stylers: [
+    				{ hue: main_color },
+    				{ visibility: "on" },
+    				{ lightness: brightness_value },
+    				{ saturation: saturation_value }
+    			]
+    		},
+    		{
+    			featureType: "water",
+    			elementType: "geometry",
+    			stylers: [
+    				{ hue: main_color },
+    				{ visibility: "on" },
+    				{ lightness: brightness_value },
+    				{ saturation: saturation_value }
+    			]
+    		}
+    	];
+
+      var map_options = {
+        center: new google.maps.LatLng(latitude, longitude),
+        zoom: map_zoom,
+        panControl: true,
+        zoomControl: true,
+        mapTypeControl: true,
+        scrollwheel: false,
+        styles: style
+      }
+
+      map = new google.maps.Map(document.getElementById('map'), map_options);
+    }
+  </script>
+  <script src="js/common.js"></script>
+</body>
+</html>
